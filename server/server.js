@@ -12,7 +12,9 @@ app.listen(port, () => {
     console.log(`Comin at ya live at ${port}`)
 })
 
-app.get('/js', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "../client/src/index.html"))
     // res.status(200).sendFile('assets/beaned_cans.jpg')
 })
+
+app.use('/css', express.static(path.join(__dirname, '../client/style/style.css')))
